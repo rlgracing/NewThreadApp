@@ -58,7 +58,7 @@ public class RaceControl {
         Lap lapFastestSector1 = recorder.getBestSector1().values().stream().findFirst().orElse(null);
         Sector fastestSector1 =
                 lapFastestSector1.getSectors().stream()
-                        .filter(sector -> sector.getId() == 0)
+                        .filter(sector -> sector.getId() == 1)
                         .findFirst()
                         .orElse(null);
         System.out.println("FASTEST SECTOR 1: "+fastestSector1Driver.getId()+" - "+lapFastestSector1.getId()+" - "+fastestSector1.getId()+" - "+ new SimpleDateFormat("mm:ss.SSS").format(fastestSector1.getSectorTime()));
@@ -67,7 +67,7 @@ public class RaceControl {
         Lap lapFastestSector2 = recorder.getBestSector2().values().stream().findFirst().orElse(null);
         Sector fastestSector2 =
                 lapFastestSector2.getSectors().stream()
-                        .filter(sector -> sector.getId() == 1)
+                        .filter(sector -> sector.getId() == 2)
                         .findFirst()
                         .orElse(null);
         System.out.println("FASTEST SECTOR 2: "+fastestSector2Driver.getId()+" - "+lapFastestSector2.getId()+" - "+fastestSector2.getId()+" - "+ new SimpleDateFormat("mm:ss.SSS").format(fastestSector2.getSectorTime()));
@@ -76,7 +76,7 @@ public class RaceControl {
         Lap lapFastestSector3 = recorder.getBestSector3().values().stream().findFirst().orElse(null);
         Sector fastestSector3 =
                 lapFastestSector3.getSectors().stream()
-                        .filter(sector -> sector.getId() == 2)
+                        .filter(sector -> sector.getId() == 3)
                         .findFirst()
                         .orElse(null);
         System.out.println("FASTEST SECTOR 3: "+fastestSector3Driver.getId()+" - "+lapFastestSector3.getId()+" - "+fastestSector3.getId()+" - "+ new SimpleDateFormat("mm:ss.SSS").format(fastestSector3.getSectorTime()));

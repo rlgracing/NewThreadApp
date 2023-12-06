@@ -25,6 +25,7 @@ public class Simulator implements Runnable{
         }
 
         while(event.getFinish() == null || driverLaps < event.getLaps()) {
+            driverLaps++;
             lapStart = (lapStart == null) ? new Date() : lapStart;
 
             Lap lap = new Lap();
@@ -33,16 +34,16 @@ public class Simulator implements Runnable{
 
             Date sectorStart = lapStart;
             Date sectorFinish = null;
-            for (int i = 0 ; i < event.getTrack().getSectors() ; i++) {
+            for (int i = 1 ; i <= event.getTrack().getSectors() ; i++) {
                 Sector sector = new Sector();
                 sector.setId(i);
                 sector.setStart(sectorStart);
 
                 Date sectionStart = sectorStart;
                 Date sectionFinish = null;
-                for(int j = 0 ; j < 10 ; j++) {
+                for(int j = 1 ; j <= 10 ; j++) {
                     Section section = new Section();
-                    section.setId(j);
+                    section.setId((i*10)+j);
                     section.setStart(sectionStart);
 
                     try {
@@ -78,8 +79,6 @@ public class Simulator implements Runnable{
 
             recorder.addLap(driver, lap);
             lapStart = lapFinish;
-
-            driverLaps++;
 
             if(driverLaps == event.getLaps()) {
                 event.setFinish(new Date());
